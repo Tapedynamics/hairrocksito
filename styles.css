@@ -1757,141 +1757,205 @@ ul {
 /* Mobile devices */
 @media screen and (max-width: 576px) {
     html {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
 
     .section__header {
-        margin-bottom: 40px;
+        margin-bottom: 35px;
     }
 
     .section__title {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
+        line-height: 1.3;
+    }
+
+    .section__subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
     }
 
     /* Hero Mobile Optimization */
     .hero {
         min-height: auto;
-        padding: 120px 0 60px;
+        padding: 100px 0 50px;
     }
 
     .hero__container {
-        gap: 30px;
+        gap: 25px;
     }
 
     .hero__title {
-        font-size: 2.2rem;
-        line-height: 1.2;
+        font-size: 2.4rem;
+        line-height: 1.25;
     }
 
     .hero__title .rock {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         display: block;
-        margin-top: 10px;
+        margin-top: 8px;
     }
 
     .hero__description {
-        font-size: 1rem;
-        margin-bottom: 30px;
+        font-size: 1.05rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
     }
 
     .hero__buttons {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
+        width: 100%;
     }
 
     .hero__logo {
-        max-width: 280px;
+        max-width: 260px;
     }
 
     .scroll-down {
         display: none;
     }
 
-    /* Buttons */
+    /* Buttons - Optimized for touch */
     .btn {
         width: 100%;
         text-align: center;
-        padding: 14px 30px;
-        font-size: 0.8rem;
+        padding: 16px 32px;
+        font-size: 0.95rem;
+        min-height: 52px;
+        font-weight: 600;
     }
 
-    /* Navigation */
+    /* Navigation - Better mobile experience */
     .nav {
-        height: 70px;
+        height: 65px;
+        padding: 0 16px;
     }
 
     .nav__logo-img {
-        height: 40px;
+        height: 42px;
     }
 
     .nav__menu {
-        width: 85%;
-        padding: 70px 30px;
+        width: 100%;
+        max-width: 100%;
+        padding: 80px 24px 40px;
+        background: var(--bg-wood);
     }
 
-    /* Services */
+    .nav__menu::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.85) 100%);
+        pointer-events: none;
+    }
+
+    .nav__list {
+        position: relative;
+        z-index: 1;
+    }
+
+    .nav__link {
+        color: var(--cream);
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 12px 0;
+    }
+
+    .nav__link:hover {
+        color: var(--brass-gold);
+    }
+
+    .nav__toggle,
+    .nav__close {
+        color: var(--brass-gold);
+        font-size: 1.8rem;
+    }
+
+    /* Services - Better mobile layout */
     .services__grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
     }
 
     .service__card {
-        padding: 30px 20px;
+        padding: 28px 20px;
+        text-decoration: none;
+        display: block;
     }
 
     .service__icon {
-        width: 70px;
-        height: 70px;
-        font-size: 1.75rem;
-        margin-bottom: 20px;
+        width: 75px;
+        height: 75px;
+        font-size: 1.85rem;
+        margin-bottom: 18px;
     }
 
     .service__card h3 {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
     }
 
-    /* Gallery */
+    .service__card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Gallery - Optimized for mobile */
     .gallery__grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 12px;
     }
 
     .gallery__item {
         aspect-ratio: 4/3;
+        border-radius: 8px;
+        overflow: hidden;
     }
 
-    /* Reviews Banner */
+    .gallery__item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Reviews Banner - Better mobile presentation */
     .reviews-banner {
-        padding: 40px 0;
+        padding: 35px 0;
     }
 
     .reviews-banner__content {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 20px;
     }
 
     .review-stat {
-        gap: 10px;
+        gap: 12px;
+        padding: 20px;
     }
 
     .review-stat i {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .review-stat strong {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .review-stat span {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
 
     /* About Features */
@@ -1905,83 +1969,222 @@ ul {
         font-size: 0.95rem;
     }
 
-    /* Contact Section */
+    /* Contact Section - Touch-friendly */
     .contact__grid {
-        gap: 30px;
+        gap: 25px;
     }
 
     .contact__info {
-        gap: 15px;
+        gap: 12px;
     }
 
     .info__card {
-        padding: 20px;
+        padding: 24px 20px;
         flex-direction: column;
         text-align: center;
         align-items: center;
+        min-height: 140px;
     }
 
     .info__icon {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
+        width: 52px;
+        height: 52px;
+        font-size: 1.3rem;
     }
 
     .info__content h4 {
-        font-size: 1rem;
+        font-size: 1.05rem;
+        margin-bottom: 8px;
     }
 
-    .info__content p {
-        font-size: 0.9rem;
+    .info__content p,
+    .info__content a {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 
-    /* Contact Form */
+    /* Contact Form - Better mobile UX */
     .contact__form {
-        padding: 25px 20px;
+        padding: 28px 20px;
     }
 
     .form__group {
-        margin-bottom: 25px;
+        margin-bottom: 22px;
     }
 
     .form__group input,
     .form__group textarea,
     .form__group select {
-        padding: 12px 15px;
-        font-size: 0.95rem;
+        padding: 14px 16px;
+        font-size: 1rem;
+        min-height: 50px;
+        border-radius: 8px;
+    }
+
+    .form__group textarea {
+        min-height: 120px;
     }
 
     .form__group label {
-        font-size: 0.9rem;
-        left: 15px;
+        font-size: 0.95rem;
+        left: 16px;
     }
 
-    /* Footer */
+    /* Footer - Better mobile spacing */
     .footer {
-        padding: 50px 0 25px;
+        padding: 45px 0 20px;
     }
 
     .footer__logo-img {
-        height: 60px;
+        height: 65px;
+    }
+
+    .footer__description {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
     }
 
     .footer__social {
-        gap: 15px;
+        gap: 12px;
+        flex-wrap: wrap;
     }
 
     .social__link {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
+        width: 52px;
+        height: 52px;
+        font-size: 1.3rem;
     }
 
-    /* WhatsApp Float */
+    /* WhatsApp Float - Optimized touch target */
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.9rem;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-float:active {
+        transform: scale(0.95);
+    }
+
+    /* Service Pages Mobile Optimization */
+    .service-details__grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .service-details__content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .service-details__content h3 {
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+        padding-left: 15px;
+    }
+
+    .service-details__content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .service-types {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 25px 0;
+    }
+
+    .service-type-card {
+        border-width: 2px;
+    }
+
+    .service-type-image {
+        height: 220px;
+    }
+
+    .service-type-card h4 {
+        font-size: 1.15rem;
+        margin: 18px 0 10px;
+        padding: 0 20px;
+    }
+
+    .service-type-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .service-benefits {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 25px 0;
+    }
+
+    .service-benefits li {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    .service-benefits li i {
+        font-size: 1.15rem;
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 30px 0;
+    }
+
+    .process-step {
+        padding: 25px 20px;
+    }
+
+    .step-number {
         width: 55px;
         height: 55px;
-        font-size: 1.75rem;
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .process-step h4 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+    }
+
+    .process-step p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .service-sidebar {
+        margin-top: 0;
+    }
+
+    .sidebar-card {
+        padding: 24px 20px;
+        margin-bottom: 16px;
+    }
+
+    .sidebar-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .sidebar-card .btn {
+        font-size: 0.9rem;
+        padding: 14px 28px;
+    }
+
+    .service-gallery {
+        margin: 20px 0;
+        border-width: 3px;
     }
 }
 
