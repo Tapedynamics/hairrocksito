@@ -1,3 +1,7 @@
+// ===== MOBILE OPTIMIZATIONS =====
+// Prevent scroll when mobile menu is open
+const body = document.body;
+
 // ===== NAVIGATION MENU =====
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
@@ -8,6 +12,7 @@ const navLinks = document.querySelectorAll('.nav__link');
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu');
+        body.style.overflow = 'hidden'; // Prevent background scroll
     });
 }
 
@@ -15,6 +20,7 @@ if (navToggle) {
 if (navClose) {
     navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
+        body.style.overflow = ''; // Restore scroll
     });
 }
 
@@ -22,7 +28,18 @@ if (navClose) {
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
+        body.style.overflow = ''; // Restore scroll
     });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('show-menu') &&
+        !navMenu.contains(e.target) &&
+        !navToggle.contains(e.target)) {
+        navMenu.classList.remove('show-menu');
+        body.style.overflow = '';
+    }
 });
 
 // ===== SCROLL HEADER =====
@@ -409,12 +426,60 @@ if ('IntersectionObserver' in window) {
                 observer.unobserve(img);
             }
         });
+    }, {
+        rootMargin: '50px' // Start loading images slightly before they enter viewport
     });
 
     document.querySelectorAll('img').forEach(img => {
         imageObserver.observe(img);
     });
 }
+
+// ===== MOBILE TOUCH OPTIMIZATIONS =====
+// Faster click response on mobile
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+// Prevent pull-to-refresh on hero section
+const hero = document.querySelector('.hero');
+if (hero) {
+    hero.addEventListener('touchmove', (e) => {
+        if (window.scrollY === 0) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+}
+
+// Smooth scroll behavior for iOS Safari
+document.documentElement.style.scrollBehavior = 'smooth';
+
+// ===== PERFORMANCE OPTIMIZATIONS =====
+// Debounce scroll events
+let scrollTimeout;
+function debounceScroll(func, wait = 10) {
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(scrollTimeout);
+            func(...args);
+        };
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debounce to scroll-heavy functions
+const debouncedReveal = debounceScroll(reveal, 10);
+const debouncedScrollActive = debounceScroll(scrollActive, 10);
+
+window.removeEventListener('scroll', reveal);
+window.removeEventListener('scroll', scrollActive);
+window.addEventListener('scroll', debouncedReveal, { passive: true });
+window.addEventListener('scroll', debouncedScrollActive, { passive: true });
 
 // ===== PRELOADER (Optional) =====
 window.addEventListener('load', () => {

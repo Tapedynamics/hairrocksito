@@ -783,7 +783,17 @@ ul {
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Tablets and medium devices */
 @media screen and (max-width: 968px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
     .section__title {
         font-size: 2rem;
     }
@@ -792,6 +802,7 @@ ul {
     .about__grid,
     .contact__grid {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .hero__title {
@@ -806,16 +817,24 @@ ul {
         order: -1;
     }
 
+    .hero__blob {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Mobile Navigation */
     .nav__menu {
         position: fixed;
         top: 0;
         right: -100%;
         width: 80%;
+        max-width: 350px;
         height: 100vh;
         background: var(--white);
         box-shadow: var(--shadow-lg);
         padding: 80px 40px;
         transition: var(--transition);
+        overflow-y: auto;
     }
 
     .nav__menu.show-menu {
@@ -828,7 +847,7 @@ ul {
     }
 
     .nav__link {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 
     .nav__toggle,
@@ -841,40 +860,372 @@ ul {
         top: 20px;
         right: 20px;
     }
+
+    /* Services Grid */
+    .services__grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    /* Gallery Grid */
+    .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    /* Reviews Banner */
+    .reviews-banner__content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .review-stat strong {
+        font-size: 2rem;
+    }
+
+    /* About Section */
+    .about__image {
+        max-height: 400px;
+    }
+
+    /* Contact Info */
+    .contact__info {
+        gap: 20px;
+    }
 }
 
+/* Mobile devices */
 @media screen and (max-width: 576px) {
+    html {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
     .section {
         padding: 60px 0;
     }
 
+    .section__header {
+        margin-bottom: 40px;
+    }
+
+    .section__title {
+        font-size: 1.75rem;
+    }
+
+    /* Hero Mobile Optimization */
+    .hero {
+        min-height: auto;
+        padding: 120px 0 60px;
+    }
+
+    .hero__container {
+        gap: 30px;
+    }
+
     .hero__title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
     }
 
     .hero__title .rock {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .hero__description {
+        font-size: 1rem;
+        margin-bottom: 30px;
     }
 
     .hero__buttons {
         flex-direction: column;
+        gap: 15px;
     }
 
+    .hero__blob {
+        width: 250px;
+        height: 250px;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
+    /* Buttons */
     .btn {
         width: 100%;
         text-align: center;
+        padding: 14px 30px;
+        font-size: 0.8rem;
     }
 
-    .services__grid,
+    /* Navigation */
+    .nav {
+        height: 70px;
+    }
+
+    .nav__logo {
+        font-size: 1.3rem;
+    }
+
+    .nav__logo i {
+        font-size: 1.5rem;
+    }
+
+    .nav__menu {
+        width: 85%;
+        padding: 70px 30px;
+    }
+
+    /* Services */
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service__card {
+        padding: 30px 20px;
+    }
+
+    .service__icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+    }
+
+    .service__card h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Gallery */
     .gallery__grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
+    .gallery__item {
+        aspect-ratio: 4/3;
+    }
+
+    /* Reviews Banner */
+    .reviews-banner {
+        padding: 40px 0;
+    }
+
+    .reviews-banner__content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .review-stat {
+        gap: 10px;
+    }
+
+    .review-stat i {
+        font-size: 2.5rem;
+    }
+
+    .review-stat strong {
+        font-size: 2rem;
+    }
+
+    .review-stat span {
+        font-size: 0.8rem;
+    }
+
+    /* About Features */
     .about__features {
         grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 25px;
     }
 
+    .feature {
+        font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    .contact__grid {
+        gap: 30px;
+    }
+
+    .contact__info {
+        gap: 15px;
+    }
+
+    .info__card {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .info__icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .info__content h4 {
+        font-size: 1rem;
+    }
+
+    .info__content p {
+        font-size: 0.9rem;
+    }
+
+    /* Contact Form */
     .contact__form {
-        padding: 30px 20px;
+        padding: 25px 20px;
+    }
+
+    .form__group {
+        margin-bottom: 25px;
+    }
+
+    .form__group input,
+    .form__group textarea,
+    .form__group select {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .form__group label {
+        font-size: 0.9rem;
+        left: 15px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 50px 0 25px;
+    }
+
+    .footer__logo {
+        font-size: 1.75rem;
+    }
+
+    .footer__social {
+        gap: 15px;
+    }
+
+    .social__link {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.75rem;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 375px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__title .rock {
+        font-size: 2.2rem;
+    }
+
+    .section__title {
+        font-size: 1.5rem;
+    }
+
+    .nav__logo {
+        font-size: 1.1rem;
+    }
+
+    .service__card h3 {
+        font-size: 1.1rem;
+    }
+
+    .review-stat strong {
+        font-size: 1.75rem;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Landscape mode optimization for mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 40px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .nav {
+        height: 60px;
+    }
+
+    .hero__blob {
+        display: none;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    .nav__link {
+        padding: 10px 0;
+    }
+
+    .btn {
+        min-height: 48px;
+    }
+
+    .service__card {
+        transition: none;
+    }
+
+    .service__card:active {
+        transform: scale(0.98);
+    }
+
+    .gallery__item:active {
+        opacity: 0.9;
+    }
+
+    /* Remove hover effects on touch devices */
+    .service__card:hover,
+    .gallery__item:hover img {
+        transform: none;
+    }
+
+    .social__link:hover {
+        transform: none;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero__blob {
+        will-change: border-radius;
     }
 }
