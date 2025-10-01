@@ -490,39 +490,4 @@ window.addEventListener('load', () => {
     }
 });
 
-// ===== CURSOR EFFECT (Desktop only) =====
-if (window.innerWidth > 768) {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    cursor.style.cssText = `
-        width: 20px;
-        height: 20px;
-        border: 2px solid #e74c3c;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: transform 0.2s ease;
-        display: none;
-    `;
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.display = 'block';
-        cursor.style.left = e.clientX - 10 + 'px';
-        cursor.style.top = e.clientY - 10 + 'px';
-    });
-
-    document.querySelectorAll('a, button, .service__card, .gallery__item').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(2)';
-            cursor.style.borderColor = '#c0392b';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-            cursor.style.borderColor = '#e74c3c';
-        });
-    });
-}
-
 console.log('🎸 Hair Rock Peluquería - Website Loaded Successfully!');
