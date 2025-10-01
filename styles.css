@@ -274,6 +274,26 @@ ul {
     color: var(--cream);
 }
 
+/* Service Gallery */
+.service-gallery {
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 4px solid var(--brass-gold);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+}
+
+.service-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.service-main-image:hover {
+    transform: scale(1.05);
+}
+
 /* Service Types */
 .service-types {
     display: grid;
@@ -284,12 +304,13 @@ ul {
 
 .service-type-card {
     background: var(--bg-brick);
-    padding: 30px;
+    padding: 0;
     border-radius: 4px;
     border: 3px solid var(--metal-gray);
     transition: var(--transition);
     box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.4);
     position: relative;
+    overflow: hidden;
 }
 
 .service-type-card::before {
@@ -300,6 +321,46 @@ ul {
     right: 0;
     height: 5px;
     background: linear-gradient(90deg, var(--brass-gold) 0%, var(--brick-red) 50%, var(--brass-gold) 100%);
+    z-index: 1;
+}
+
+.service-type-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-type-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    filter: brightness(0.8);
+}
+
+.service-type-card:hover .service-type-image img {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+.service-type-card h4,
+.service-type-card p {
+    padding: 0 30px;
+}
+
+.service-type-card h4 {
+    font-size: 1.25rem;
+    margin: 20px 0 10px;
+    color: var(--brass-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.service-type-card p {
+    color: var(--cream);
+    margin-bottom: 30px;
 }
 
 .service-type-card:hover {
@@ -310,20 +371,7 @@ ul {
     border-color: var(--brass-gold);
 }
 
-.service-type-card h4 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: var(--brass-gold);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .service-type-card:hover h4 {
-    color: var(--cream);
-}
-
-.service-type-card p {
     color: var(--cream);
 }
 
