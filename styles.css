@@ -155,14 +155,16 @@ ul {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--secondary-color);
 }
 
-.nav__logo i {
-    color: var(--primary-color);
-    font-size: 1.8rem;
+.nav__logo-img {
+    height: 50px;
+    width: auto;
+    transition: var(--transition);
+}
+
+.nav__logo-img:hover {
+    transform: scale(1.05);
 }
 
 .nav__list {
@@ -792,14 +794,20 @@ ul {
 .footer__logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 2rem;
-    font-weight: 900;
+    justify-content: center;
     margin-bottom: 15px;
 }
 
-.footer__logo i {
-    color: var(--primary-color);
+.footer__logo-img {
+    height: 80px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: var(--transition);
+}
+
+.footer__logo-img:hover {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .footer__description {
@@ -1069,12 +1077,8 @@ ul {
         height: 70px;
     }
 
-    .nav__logo {
-        font-size: 1.3rem;
-    }
-
-    .nav__logo i {
-        font-size: 1.5rem;
+    .nav__logo-img {
+        height: 40px;
     }
 
     .nav__menu {
@@ -1206,8 +1210,8 @@ ul {
         padding: 50px 0 25px;
     }
 
-    .footer__logo {
-        font-size: 1.75rem;
+    .footer__logo-img {
+        height: 60px;
     }
 
     .footer__social {
@@ -1248,8 +1252,8 @@ ul {
         font-size: 1.5rem;
     }
 
-    .nav__logo {
-        font-size: 1.1rem;
+    .nav__logo-img {
+        height: 35px;
     }
 
     .service__card h3 {
