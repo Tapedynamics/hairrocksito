@@ -74,23 +74,7 @@ function scrollActive() {
 }
 window.addEventListener('scroll', scrollActive);
 
-// ===== SCROLL REVEAL ANIMATION =====
-function reveal() {
-    const reveals = document.querySelectorAll('.service__card, .gallery__item, .info__card');
-
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('revealed');
-        }
-    });
-}
-
-// Call reveal on load
-reveal();
+// Scroll reveal removed - elements always visible
 
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -465,12 +449,9 @@ function debounceScroll(func, wait = 10) {
 }
 
 // Apply debounce to scroll-heavy functions
-const debouncedReveal = debounceScroll(reveal, 10);
 const debouncedScrollActive = debounceScroll(scrollActive, 10);
 
-window.removeEventListener('scroll', reveal);
 window.removeEventListener('scroll', scrollActive);
-window.addEventListener('scroll', debouncedReveal, { passive: true });
 window.addEventListener('scroll', debouncedScrollActive, { passive: true });
 
 // ===== PRELOADER (Optional) =====
