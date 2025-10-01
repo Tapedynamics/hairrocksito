@@ -58,108 +58,149 @@
                 </div>
             </div>
             <div class="hero__image">
-                <svg class="hero__guitar" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Guitar Body -->
-                    <g class="guitar-body">
-                        <ellipse cx="200" cy="280" rx="90" ry="100" fill="url(#guitarGradient)" opacity="0.9"/>
-                        <ellipse cx="200" cy="280" rx="70" ry="80" fill="#1a1a1a"/>
-                        <ellipse cx="200" cy="280" rx="50" ry="60" fill="url(#guitarGradient)" opacity="0.3"/>
-                        <!-- Sound hole -->
-                        <circle cx="200" cy="280" r="25" fill="#0a0a0a"/>
-                        <circle cx="200" cy="280" r="22" fill="none" stroke="url(#guitarGradient)" stroke-width="2"/>
-                    </g>
-
-                    <!-- Guitar Neck -->
-                    <g class="guitar-neck">
-                        <rect x="185" y="80" width="30" height="200" fill="#3d2817" rx="5"/>
-                        <rect x="190" y="80" width="20" height="200" fill="#5d3f2e"/>
-
-                        <!-- Frets -->
-                        <line x1="185" y1="110" x2="215" y2="110" stroke="#c0c0c0" stroke-width="2"/>
-                        <line x1="185" y1="140" x2="215" y2="140" stroke="#c0c0c0" stroke-width="2"/>
-                        <line x1="185" y1="170" x2="215" y2="170" stroke="#c0c0c0" stroke-width="2"/>
-                        <line x1="185" y1="200" x2="215" y2="200" stroke="#c0c0c0" stroke-width="2"/>
-                        <line x1="185" y1="230" x2="215" y2="230" stroke="#c0c0c0" stroke-width="2"/>
-
-                        <!-- Fret markers -->
-                        <circle cx="200" cy="125" r="3" fill="#e74c3c"/>
-                        <circle cx="200" cy="185" r="3" fill="#e74c3c"/>
-                    </g>
-
-                    <!-- Guitar Head -->
+                <svg class="hero__guitar" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Guitar Head (Strat style) -->
                     <g class="guitar-head">
-                        <path d="M 185 80 L 180 30 L 220 30 L 215 80 Z" fill="#3d2817"/>
-                        <path d="M 190 80 L 185 35 L 215 35 L 210 80 Z" fill="#5d3f2e"/>
-
+                        <path d="M 135 20 L 130 50 L 145 50 L 150 20 L 165 20 L 170 50 L 185 50 L 180 20 Z"
+                              fill="#1a1a1a" stroke="#000" stroke-width="1"/>
                         <!-- Tuning pegs -->
-                        <circle cx="183" cy="45" r="4" fill="#808080"/>
-                        <circle cx="183" cy="55" r="4" fill="#808080"/>
-                        <circle cx="183" cy="65" r="4" fill="#808080"/>
-                        <circle cx="217" cy="45" r="4" fill="#808080"/>
-                        <circle cx="217" cy="55" r="4" fill="#808080"/>
-                        <circle cx="217" cy="65" r="4" fill="#808080"/>
+                        <circle cx="138" cy="30" r="5" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+                        <circle cx="138" cy="42" r="5" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+                        <circle cx="155" cy="30" r="5" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+                        <circle cx="172" cy="30" r="5" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+                        <circle cx="172" cy="42" r="5" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+                        <circle cx="155" cy="42" r="5" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+                    </g>
+
+                    <!-- Neck -->
+                    <g class="guitar-neck">
+                        <rect x="140" y="50" width="45" height="230" fill="#2c1810" rx="3"/>
+                        <rect x="143" y="50" width="39" height="230" fill="#3d2414"/>
+                        <!-- Frets -->
+                        <line x1="140" y1="80" x2="185" y2="80" stroke="#d4d4d4" stroke-width="2"/>
+                        <line x1="140" y1="110" x2="185" y2="110" stroke="#d4d4d4" stroke-width="2"/>
+                        <line x1="140" y1="140" x2="185" y2="140" stroke="#d4d4d4" stroke-width="2"/>
+                        <line x1="140" y1="170" x2="185" y2="170" stroke="#d4d4d4" stroke-width="2"/>
+                        <line x1="140" y1="200" x2="185" y2="200" stroke="#d4d4d4" stroke-width="2"/>
+                        <line x1="140" y1="230" x2="185" y2="230" stroke="#d4d4d4" stroke-width="2"/>
+                        <line x1="140" y1="260" x2="185" y2="260" stroke="#d4d4d4" stroke-width="2"/>
+                        <!-- Dot markers -->
+                        <circle cx="162.5" cy="95" r="4" fill="#e74c3c"/>
+                        <circle cx="162.5" cy="155" r="4" fill="#e74c3c"/>
+                        <circle cx="162.5" cy="215" r="4" fill="#e74c3c"/>
                     </g>
 
                     <!-- Strings -->
                     <g class="guitar-strings">
-                        <line x1="190" y1="35" x2="190" y2="350" stroke="#d4af37" stroke-width="0.5" opacity="0.8"/>
-                        <line x1="195" y1="35" x2="195" y2="350" stroke="#d4af37" stroke-width="0.5" opacity="0.8"/>
-                        <line x1="200" y1="35" x2="200" y2="350" stroke="#d4af37" stroke-width="1" opacity="0.9"/>
-                        <line x1="205" y1="35" x2="205" y2="350" stroke="#d4af37" stroke-width="0.5" opacity="0.8"/>
-                        <line x1="210" y1="35" x2="210" y2="350" stroke="#d4af37" stroke-width="0.5" opacity="0.8"/>
+                        <line x1="143" y1="40" x2="143" y2="450" stroke="#ffd700" stroke-width="0.8" opacity="0.9"/>
+                        <line x1="151" y1="38" x2="151" y2="450" stroke="#ffd700" stroke-width="0.8" opacity="0.9"/>
+                        <line x1="159" y1="36" x2="159" y2="450" stroke="#ffd700" stroke-width="1" opacity="0.9"/>
+                        <line x1="167" y1="36" x2="167" y2="450" stroke="#ffd700" stroke-width="1" opacity="0.9"/>
+                        <line x1="175" y1="38" x2="175" y2="450" stroke="#ffd700" stroke-width="0.8" opacity="0.9"/>
+                        <line x1="182" y1="40" x2="182" y2="450" stroke="#ffd700" stroke-width="0.8" opacity="0.9"/>
+                    </g>
+
+                    <!-- Body (Stratocaster shape) -->
+                    <g class="guitar-body">
+                        <!-- Main body -->
+                        <path d="M 80 280
+                                 Q 70 300, 70 330
+                                 Q 70 380, 90 420
+                                 Q 110 460, 150 475
+                                 Q 190 460, 210 420
+                                 Q 230 380, 230 330
+                                 Q 230 300, 220 280
+                                 L 185 280
+                                 L 185 320
+                                 Q 185 340, 175 355
+                                 Q 165 365, 150 365
+                                 Q 135 365, 125 355
+                                 Q 115 340, 115 320
+                                 L 115 280
+                                 Z"
+                              fill="url(#guitarGradient)" stroke="#1a1a1a" stroke-width="3"/>
+
+                        <!-- Body shine -->
+                        <ellipse cx="150" cy="360" rx="50" ry="70" fill="#fff" opacity="0.1"/>
+                    </g>
+
+                    <!-- Pickguard -->
+                    <g class="pickguard">
+                        <path d="M 115 290
+                                 L 95 300
+                                 Q 85 310, 85 330
+                                 L 85 380
+                                 Q 85 395, 95 405
+                                 L 115 415
+                                 Q 115 350, 115 290
+                                 Z"
+                              fill="#1a1a1a" opacity="0.6"/>
+                    </g>
+
+                    <!-- Pickups (3 single coils - Strat style) -->
+                    <g class="guitar-pickups">
+                        <!-- Neck pickup -->
+                        <rect x="100" y="315" width="50" height="12" rx="6" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+                        <circle cx="110" cy="321" r="2" fill="#e74c3c"/>
+                        <circle cx="120" cy="321" r="2" fill="#e74c3c"/>
+                        <circle cx="130" cy="321" r="2" fill="#e74c3c"/>
+                        <circle cx="140" cy="321" r="2" fill="#e74c3c"/>
+
+                        <!-- Middle pickup -->
+                        <rect x="110" y="350" width="50" height="12" rx="6" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+                        <circle cx="120" cy="356" r="2" fill="#e74c3c"/>
+                        <circle cx="130" cy="356" r="2" fill="#e74c3c"/>
+                        <circle cx="140" cy="356" r="2" fill="#e74c3c"/>
+                        <circle cx="150" cy="356" r="2" fill="#e74c3c"/>
+
+                        <!-- Bridge pickup -->
+                        <rect x="120" y="385" width="50" height="12" rx="6" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+                        <circle cx="130" cy="391" r="2" fill="#e74c3c"/>
+                        <circle cx="140" cy="391" r="2" fill="#e74c3c"/>
+                        <circle cx="150" cy="391" r="2" fill="#e74c3c"/>
+                        <circle cx="160" cy="391" r="2" fill="#e74c3c"/>
+                    </g>
+
+                    <!-- Controls -->
+                    <g class="guitar-knobs">
+                        <!-- Volume -->
+                        <circle cx="180" cy="330" r="10" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+                        <circle cx="180" cy="330" r="8" fill="#2c2c2c"/>
+                        <line x1="180" y1="330" x2="180" y2="323" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"/>
+
+                        <!-- Tone 1 -->
+                        <circle cx="200" cy="345" r="10" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+                        <circle cx="200" cy="345" r="8" fill="#2c2c2c"/>
+                        <line x1="200" y1="345" x2="205" y2="340" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"/>
+
+                        <!-- Tone 2 -->
+                        <circle cx="200" cy="370" r="10" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+                        <circle cx="200" cy="370" r="8" fill="#2c2c2c"/>
+                        <line x1="200" y1="370" x2="195" y2="365" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"/>
                     </g>
 
                     <!-- Bridge -->
                     <g class="guitar-bridge">
-                        <rect x="180" y="345" width="40" height="8" fill="#2c3e50" rx="2"/>
-                        <rect x="182" y="347" width="36" height="4" fill="#34495e"/>
+                        <rect x="125" y="430" width="50" height="15" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+                        <rect x="127" y="432" width="46" height="11" fill="#d4d4d4"/>
+                        <!-- Saddles -->
+                        <rect x="130" y="433" width="6" height="9" rx="1" fill="#a0a0a0"/>
+                        <rect x="140" y="433" width="6" height="9" rx="1" fill="#a0a0a0"/>
+                        <rect x="150" y="433" width="6" height="9" rx="1" fill="#a0a0a0"/>
+                        <rect x="160" y="433" width="6" height="9" rx="1" fill="#a0a0a0"/>
                     </g>
 
-                    <!-- Pickups -->
-                    <g class="guitar-pickups">
-                        <rect x="185" y="290" width="30" height="15" fill="#1a1a1a" rx="2"/>
-                        <rect x="185" y="320" width="30" height="15" fill="#1a1a1a" rx="2"/>
+                    <!-- Output jack -->
+                    <circle cx="150" cy="460" r="6" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+                    <circle cx="150" cy="460" r="3" fill="#2c2c2c"/>
 
-                        <!-- Pickup details -->
-                        <line x1="190" y1="292" x2="190" y2="303" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="195" y1="292" x2="195" y2="303" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="200" y1="292" x2="200" y2="303" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="205" y1="292" x2="205" y2="303" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="210" y1="292" x2="210" y2="303" stroke="#e74c3c" stroke-width="1"/>
-
-                        <line x1="190" y1="322" x2="190" y2="333" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="195" y1="322" x2="195" y2="333" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="200" y1="322" x2="200" y2="333" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="205" y1="322" x2="205" y2="333" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="210" y1="322" x2="210" y2="333" stroke="#e74c3c" stroke-width="1"/>
-                    </g>
-
-                    <!-- Volume/Tone Knobs -->
-                    <g class="guitar-knobs">
-                        <circle cx="230" cy="300" r="8" fill="#2c3e50"/>
-                        <circle cx="230" cy="300" r="6" fill="#34495e"/>
-                        <line x1="230" y1="300" x2="230" y2="294" stroke="#e74c3c" stroke-width="2"/>
-
-                        <circle cx="230" cy="325" r="8" fill="#2c3e50"/>
-                        <circle cx="230" cy="325" r="6" fill="#34495e"/>
-                        <line x1="230" y1="325" x2="234" y2="321" stroke="#e74c3c" stroke-width="2"/>
-                    </g>
-
-                    <!-- Gradient Definitions -->
+                    <!-- Gradients & Effects -->
                     <defs>
-                        <linearGradient id="guitarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="guitarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#c0392b;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:1" />
+                            <stop offset="40%" style="stop-color:#c0392b;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:0.9" />
                         </linearGradient>
-
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
                     </defs>
                 </svg>
             </div>
