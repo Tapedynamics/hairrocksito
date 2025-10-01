@@ -140,8 +140,8 @@ if (contactForm) {
         // Encode message for URL
         const encodedMessage = encodeURIComponent(whatsappMessage);
 
-        // WhatsApp number
-        const whatsappNumber = '34922047901';
+        // WhatsApp number (mobile)
+        const whatsappNumber = '34623460413';
 
         // Open WhatsApp
         window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
