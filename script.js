@@ -84,21 +84,13 @@ function reveal() {
         const elementVisible = 150;
 
         if (elementTop < windowHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
+            element.classList.add('revealed');
         }
     });
 }
 
-// Initialize reveal elements
-document.querySelectorAll('.service__card, .gallery__item, .info__card').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(50px)';
-    element.style.transition = 'all 0.6s ease-out';
-});
-
-window.addEventListener('scroll', reveal);
-reveal(); // Call on load
+// Call reveal on load
+reveal();
 
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
