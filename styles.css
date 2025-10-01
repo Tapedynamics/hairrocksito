@@ -276,117 +276,28 @@ ul {
     align-items: center;
 }
 
-.hero__guitar {
+.hero__logo {
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     height: auto;
-    filter: drop-shadow(0 10px 30px rgba(231, 76, 60, 0.3));
-    animation: guitarFloat 6s ease-in-out infinite;
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.2));
+    animation: logoFloat 4s ease-in-out infinite;
 }
 
-/* Guitar animations */
-@keyframes guitarFloat {
+/* Logo float animation */
+@keyframes logoFloat {
     0%, 100% {
-        transform: translateY(0) rotate(-5deg);
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-20px) rotate(5deg);
+        transform: translateY(-20px);
     }
 }
 
-/* Animate guitar body */
-.guitar-body {
-    animation: guitarPulse 3s ease-in-out infinite;
-    transform-origin: center;
-}
-
-@keyframes guitarPulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* Animate guitar strings */
-.guitar-strings line {
-    animation: stringVibrate 2s ease-in-out infinite;
-    transform-origin: center;
-}
-
-.guitar-strings line:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.guitar-strings line:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.guitar-strings line:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.guitar-strings line:nth-child(4) {
-    animation-delay: 0.3s;
-}
-
-.guitar-strings line:nth-child(5) {
-    animation-delay: 0.4s;
-}
-
-@keyframes stringVibrate {
-    0%, 100% {
-        opacity: 0.8;
-    }
-    50% {
-        opacity: 1;
-        filter: drop-shadow(0 0 3px #d4af37);
-    }
-}
-
-/* Animate pickups */
-.guitar-pickups line {
-    animation: pickupGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes pickupGlow {
-    from {
-        stroke: #e74c3c;
-        opacity: 0.6;
-    }
-    to {
-        stroke: #ff6b6b;
-        opacity: 1;
-    }
-}
-
-/* Rotate knobs */
-.guitar-knobs circle:first-child {
-    animation: rotateKnob 4s linear infinite;
-    transform-origin: center;
-}
-
-@keyframes rotateKnob {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Glow effect on hover */
-.hero__guitar:hover {
-    filter: drop-shadow(0 10px 40px rgba(231, 76, 60, 0.6));
-}
-
-.hero__guitar:hover .guitar-body {
-    animation: guitarPulse 1.5s ease-in-out infinite;
-}
-
-.hero__guitar:hover .guitar-strings line {
-    animation: stringVibrate 0.5s ease-in-out infinite;
+/* Hover effect */
+.hero__logo:hover {
+    filter: drop-shadow(0 20px 50px rgba(231, 76, 60, 0.4));
+    animation: logoFloat 2s ease-in-out infinite;
 }
 
 .scroll-down {
@@ -914,8 +825,8 @@ ul {
         order: -1;
     }
 
-    .hero__guitar {
-        max-width: 300px;
+    .hero__logo {
+        max-width: 350px;
     }
 
     /* Mobile Navigation */
@@ -1043,21 +954,8 @@ ul {
         gap: 15px;
     }
 
-    .hero__guitar {
-        max-width: 250px;
-    }
-
-    /* Reduce animations on mobile for performance */
-    .hero__guitar {
-        animation: guitarFloat 8s ease-in-out infinite;
-    }
-
-    .guitar-strings line {
-        animation: none;
-    }
-
-    .guitar-knobs circle:first-child {
-        animation: none;
+    .hero__logo {
+        max-width: 280px;
     }
 
     .scroll-down {
@@ -1288,14 +1186,8 @@ ul {
         height: 60px;
     }
 
-    .hero__guitar {
-        max-width: 200px;
-        animation: none;
-    }
-
-    .guitar-body,
-    .guitar-pickups line {
-        animation: none;
+    .hero__logo {
+        max-width: 220px;
     }
 }
 
