@@ -1362,6 +1362,117 @@ ul {
     letter-spacing: 1px;
 }
 
+/* Team Section */
+.team__section {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 3px solid var(--brass-gold);
+}
+
+.team__section .section__header {
+    margin-bottom: 50px;
+}
+
+.team__section .section__title {
+    color: var(--brass-gold);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+.team__section .section__subtitle {
+    color: var(--cream);
+}
+
+.team__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+}
+
+.team__card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    background: var(--bg-leather);
+    border-radius: 8px;
+    padding: 30px;
+    border: 3px solid var(--brass-gold);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.8), inset 0 2px 8px rgba(0,0,0,0.6);
+    transition: var(--transition);
+}
+
+.team__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(184, 134, 11, 0.3), inset 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.team__image {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid var(--brass-gold);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.8);
+    height: fit-content;
+}
+
+.team__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.team__card:hover .team__image img {
+    transform: scale(1.05);
+}
+
+.team__content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.team__name {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--brass-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+.team__role {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brick-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 10px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--brass-gold);
+}
+
+.team__bio {
+    color: var(--cream);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+.team__signature {
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 2px solid var(--brass-gold);
+    font-size: 1.1rem;
+    color: var(--brass-gold);
+    font-weight: 600;
+    text-align: right;
+}
+
+.team__signature em {
+    font-style: italic;
+}
+
 /* ===== CONTACT (Barbershop Style) ===== */
 .contact {
     background: var(--bg-brick);
@@ -1751,6 +1862,17 @@ ul {
     /* Contact Info */
     .contact__info {
         gap: 20px;
+    }
+
+    /* Team Section - Tablet */
+    .team__card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .team__image {
+        max-width: 100%;
+        margin: 0 auto;
     }
 }
 
@@ -2268,6 +2390,43 @@ ul {
 
     .gallery__item:active {
         opacity: 0.9;
+    }
+
+    /* Team Section - Mobile */
+    .team__section {
+        margin-top: 50px;
+        padding-top: 40px;
+    }
+
+    .team__card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .team__image {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .team__name {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .team__role {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .team__bio {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .team__signature {
+        font-size: 1rem;
+        text-align: center;
     }
 
     /* Remove hover effects on touch devices */
