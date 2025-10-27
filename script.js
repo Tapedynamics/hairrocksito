@@ -117,7 +117,7 @@ if (contactForm) {
         const encodedMessage = encodeURIComponent(whatsappMessage);
 
         // WhatsApp number (mobile)
-        const whatsappNumber = '34623460413';
+        const whatsappNumber = '34690905426';
 
         // Open WhatsApp
         window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
