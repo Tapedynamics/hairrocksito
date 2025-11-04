@@ -6,7 +6,9 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Read(//c//**)"
+      "Read(//c//**)",
+      "Bash(git rm:*)",
+      "WebFetch(domain:sheets.googleapis.com)"
     ],
     "deny": [],
     "ask": []

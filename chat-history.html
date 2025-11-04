@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Rock - Storico Chat WhatsApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            height: calc(100vh - 40px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8B4513 0%, #5C2E0F 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .stat {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filters {
+            background: #f5f5f5;
+            padding: 15px 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-box {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #8B4513;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .date-filter {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .date-filter input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .refresh-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .refresh-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 30px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        .loading i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .chat-group {
+            margin-bottom: 30px;
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid #8B4513;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .chat-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .contact-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .chat-time {
+            text-align: right;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .chat-time i {
+            margin-right: 5px;
+        }
+
+        .messages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            display: flex;
+            gap: 10px;
+            max-width: 80%;
+        }
+
+        .message.client {
+            align-self: flex-start;
+        }
+
+        .message.ai {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-bubble {
+            padding: 12px 18px;
+            border-radius: 18px;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .message.client .message-bubble {
+            background: white;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.ai .message-bubble {
+            background: #DCF8C6;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .message.client .message-label {
+            color: #667eea;
+        }
+
+        .message.ai .message-label {
+            color: #128C7E;
+        }
+
+        .message-text {
+            color: #333;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 100px 20px;
+            color: #999;
+        }
+
+        .no-data i {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .no-data h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        /* Scrollbar styling */
+        .chat-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .chat-list::-webkit-scrollbar-thumb {
+            background: #8B4513;
+            border-radius: 4px;
+        }
+
+        .chat-list::-webkit-scrollbar-thumb:hover {
+            background: #5C2E0F;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .container {
+                height: 100vh;
+                border-radius: 0;
+            }
+
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .header-stats {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .filters {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .date-filter {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .date-filter input {
+                width: 100%;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <i class="fab fa-whatsapp"></i>
+                Hair Rock - Storico Chat
+            </h1>
+            <div class="header-stats">
+                <div class="stat">
+                    <i class="fas fa-comments"></i>
+                    <span id="totalChats">0</span> conversazioni
+                </div>
+                <div class="stat">
+                    <i class="fas fa-clock"></i>
+                    <span id="lastUpdate">--:--</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Cerca per numero, nome o messaggio...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="date-filter">
+                <input type="date" id="dateFrom" placeholder="Da">
+                <input type="date" id="dateTo" placeholder="A">
+            </div>
+            <button class="refresh-btn" onclick="loadChatHistory()">
+                <i class="fas fa-sync-alt"></i>
+                Aggiorna
+            </button>
+        </div>
+
+        <div class="chat-list" id="chatList">
+            <div class="loading">
+                <i class="fas fa-spinner"></i>
+                <p>Caricamento conversazioni...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // CONFIGURAZIONE - MODIFICA QUESTI DATI
+        // ========================================
+
+        const GOOGLE_SHEET_ID = '14EC3xc5Dd8lbjh9MMEPtCd1JVumD772UGf9DT2Myn-k';
+        const GOOGLE_API_KEY = 'AIzaSyCNbflL6VToSsuWQm_zTeY9xq_Oh5UTuiU';
+        const SHEET_NAME = 'Foglio1';
+
+        // ========================================
+
+        let allChats = [];
+
+        async function loadChatHistory() {
+            const chatList = document.getElementById('chatList');
+
+            try {
+                chatList.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i><p>Caricamento conversazioni...</p></div>';
+
+                const url = `https://sheets.googleapis.com/v4/spreadsheets/${GOOGLE_SHEET_ID}/values/${SHEET_NAME}?key=${GOOGLE_API_KEY}`;
+
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error('Errore nel caricamento dei dati');
+                }
+
+                const data = await response.json();
+                const rows = data.values;
+
+                if (!rows || rows.length <= 1) {
+                    chatList.innerHTML = `
+                        <div class="no-data">
+                            <i class="fas fa-inbox"></i>
+                            <h3>Nessuna conversazione trovata</h3>
+                            <p>Le chat verranno visualizzate qui automaticamente</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Rimuove header e processa i dati
+                const headers = rows[0];
+                allChats = rows.slice(1).map(row => ({
+                    datetime: row[0] || '',
+                    number: row[1] || '',
+                    name: row[2] || 'Sconosciuto',
+                    messageClient: row[3] || '',
+                    responseAI: row[4] || '',
+                    status: row[5] || ''
+                }));
+
+                // Raggruppa per numero di telefono
+                const groupedChats = groupChatsByNumber(allChats);
+
+                displayChats(groupedChats);
+                updateStats();
+
+            } catch (error) {
+                console.error('Errore:', error);
+                chatList.innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Errore nel caricamento</h3>
+                        <p>${error.message}</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            Verifica di aver configurato correttamente SHEET_ID e API_KEY nel codice
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        function groupChatsByNumber(chats) {
+            const grouped = {};
+
+            chats.forEach(chat => {
+                if (!grouped[chat.number]) {
+                    grouped[chat.number] = [];
+                }
+                grouped[chat.number].push(chat);
+            });
+
+            return grouped;
+        }
+
+        function displayChats(groupedChats) {
+            const chatList = document.getElementById('chatList');
+            let html = '';
+
+            Object.keys(groupedChats).reverse().forEach(number => {
+                const chats = groupedChats[number];
+                const lastChat = chats[chats.length - 1];
+                const initials = lastChat.name.substring(0, 2).toUpperCase();
+
+                html += `
+                    <div class="chat-group">
+                        <div class="chat-header">
+                            <div class="chat-info">
+                                <div class="avatar">${initials}</div>
+                                <div class="contact-details">
+                                    <h3>${lastChat.name}</h3>
+                                    <p><i class="fab fa-whatsapp"></i> ${lastChat.number}</p>
+                                </div>
+                            </div>
+                            <div class="chat-time">
+                                <i class="fas fa-clock"></i>
+                                ${lastChat.datetime}
+                            </div>
+                        </div>
+                        <div class="messages">
+                `;
+
+                chats.forEach(chat => {
+                    // Messaggio del cliente
+                    html += `
+                        <div class="message client">
+                            <div class="message-bubble">
+                                <div class="message-label">Cliente</div>
+                                <div class="message-text">${escapeHtml(chat.messageClient)}</div>
+                            </div>
+                        </div>
+                    `;
+
+                    // Risposta AI
+                    if (chat.responseAI) {
+                        html += `
+                            <div class="message ai">
+                                <div class="message-bubble">
+                                    <div class="message-label">Hair Rock AI</div>
+                                    <div class="message-text">${escapeHtml(chat.responseAI)}</div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            chatList.innerHTML = html;
+        }
+
+        function updateStats() {
+            document.getElementById('totalChats').textContent = allChats.length;
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = now.toLocaleTimeString('it-IT');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Ricerca in tempo reale
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+
+            if (!searchTerm) {
+                const groupedChats = groupChatsByNumber(allChats);
+                displayChats(groupedChats);
+                return;
+            }
+
+            const filtered = allChats.filter(chat =>
+                chat.number.toLowerCase().includes(searchTerm) ||
+                chat.name.toLowerCase().includes(searchTerm) ||
+                chat.messageClient.toLowerCase().includes(searchTerm) ||
+                chat.responseAI.toLowerCase().includes(searchTerm)
+            );
+
+            const groupedChats = groupChatsByNumber(filtered);
+            displayChats(groupedChats);
+        });
+
+        // Filtro per data
+        function filterByDate() {
+            const dateFrom = document.getElementById('dateFrom').value;
+            const dateTo = document.getElementById('dateTo').value;
+
+            if (!dateFrom && !dateTo) {
+                const groupedChats = groupChatsByNumber(allChats);
+                displayChats(groupedChats);
+                return;
+            }
+
+            const filtered = allChats.filter(chat => {
+                const chatDate = parseDate(chat.datetime);
+                const from = dateFrom ? new Date(dateFrom) : null;
+                const to = dateTo ? new Date(dateTo) : null;
+
+                if (from && to) {
+                    return chatDate >= from && chatDate <= to;
+                } else if (from) {
+                    return chatDate >= from;
+                } else if (to) {
+                    return chatDate <= to;
+                }
+                return true;
+            });
+
+            const groupedChats = groupChatsByNumber(filtered);
+            displayChats(groupedChats);
+        }
+
+        function parseDate(dateString) {
+            // Formato: DD/MM/YYYY HH:mm:ss
+            const parts = dateString.split(' ');
+            const dateParts = parts[0].split('/');
+            return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+        }
+
+        document.getElementById('dateFrom').addEventListener('change', filterByDate);
+        document.getElementById('dateTo').addEventListener('change', filterByDate);
+
+        // Carica all'avvio
+        loadChatHistory();
+
+        // Auto-refresh ogni 2 minuti
+        setInterval(loadChatHistory, 120000);
+    </script>
+</body>
+</html>
